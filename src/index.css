@@ -1,0 +1,57 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Roboto+Slab:wght@100..900&family=Rufina:wght@400;700&display=swap');
+@import "tailwindcss";
+
+@theme{
+    --color-bg: rgba(194, 239, 212, 1);
+    --color-secondary-bg: rgba(107, 199, 133, 1);
+    --color-primary: rgba(34, 79, 52, 1);
+    --color-secondary: rgba(163, 243, 190, 1);
+
+
+    --font-poppins:  "Poppins", sans-serif;
+    --font-roboto: "Roboto Slab", serif;
+    --font-rufina: "Rufina", serif;
+}
+
+
+
+
+@layer components{
+    .nav-link{
+        @apply text-primary  md:text-lg font-poppins;
+    }
+
+    .section-container{
+        @apply w-[90%] md:w-auto container md:px-8 lg:px-14 mx-auto py-16;
+    }
+
+    .btn{
+        @apply bg-primary text-white text-xl py-3 px-6 shadow-lg cursor-pointer
+                hover:bg-secondary transition duration-300 ease-in-out;
+    }
+    .heading{
+        @apply  text-3xl md:text-5xl text-primary font-semibold font-roboto;
+    }
+    .title{
+        @apply md:text-lg text-primary font-poppins;
+    }
+    .category{
+        @apply   md:text-2xl text-gray-700 font-poppins cursor-pointer relative hover:text-primary transition duration-300 ease-in-out;
+    }
+    .category::after{
+        position: absolute;
+        content: '';
+        background: var(--color-primary);
+        height: 2px;
+        width: 0%;
+        bottom: 0;
+        left: 0;
+        transition: all 0.3s ease-in-out;
+    }
+    .category:hover::after{
+        width: 100%;
+    }
+    .category.active::after{
+        width: 100%;
+    }
+}
