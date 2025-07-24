@@ -20,6 +20,8 @@ import productImg6 from './product_img_6.png';
 import productImg7 from './product_img_7.png';
 import productImg8 from './product_img_8.png';
 import starIcon from './star_icon.svg';
+import leftArrow from './left_arrow.svg'
+import rightArrow from './right_arrow.svg'
 
 export const assets= {
   bestSellingImg1,
@@ -44,6 +46,8 @@ export const assets= {
   productImg7,
   productImg8,
   starIcon,
+  leftArrow,
+  rightArrow
 };
 
 export const navItems =[
