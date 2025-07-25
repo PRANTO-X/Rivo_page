@@ -10,7 +10,7 @@ const Shop = () => {
       selectedCategory === 'sale' ? shopProducts : 
       shopProducts.filter((item)=>
         item.category.toLowerCase().trim() === selectedCategory.toLowerCase().trim()
-      );
+    );
 
   return (
 
@@ -30,13 +30,12 @@ const Shop = () => {
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
         {filterProducts.map((item)=>(
           <div key={item.id} className="flex flex-col justify-center items-center gap-2 bg-gray-200 shadow-lg p-5 rounded-lg">
-            <div >
-              <img src={item.img} alt={item.name} loading='lazy'/>
-            </div>
+             
+              <img className='w-full h-[70%] object-cover rounded-lg' src={item.img} alt={item.name} loading='lazy'/>
              <h4 className="text-lg md:text-xl font-poppins font-bold text-gray-800 text-center">{item.name}</h4>
-             <p className='font-poppins text-primary font-bold'>{item.price}</p>
+             <p className='font-poppins text-primary font-bold text-lg'>{item.price}</p>
 
-             <button className='btn'>Add To Cart</button>
+             <button className='btn text-lg py-2.5'>Add To Cart</button>
           </div>
         ))}
       </div>

@@ -2,6 +2,7 @@ import React,{useEffect} from 'react'
 import { products } from '../assets/assets'
 import { FaPlus,FaMinus} from "react-icons/fa";
 import { RxCross2 } from "react-icons/rx";
+import { BsCart4 } from "react-icons/bs";
 
 const Cart = ({ isOpen, onClose }) => {
 
@@ -25,7 +26,7 @@ const Cart = ({ isOpen, onClose }) => {
       ${isOpen ? 'translate-x-0' : 'translate-x-full'}
     `}>
     <div className="flex flex-col h-full py-7 gap-4">
-    <h1 className='text-3xl font-roboto font-bold text-primary text-center mb-3.5'>Your Cart</h1>
+    <h1 className='text-3xl font-roboto font-bold text-primary text-center mb-3.5 flex justify-center gap-0.5'><BsCart4 />Your Cart</h1>
 
     <ul className='flex flex-col gap-3.5 w-full px-4 overflow-y-auto flex-1'>
       {products.map((item) => (
