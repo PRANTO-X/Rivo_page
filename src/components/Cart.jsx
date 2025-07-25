@@ -7,7 +7,7 @@ import { BsCart4 } from "react-icons/bs";
 const Cart = ({ isOpen, onClose }) => {
 
     
-      useEffect(() => {
+  useEffect(() => {
     if (isOpen) {
       document.body.classList.add('overflow-hidden');
     } else {

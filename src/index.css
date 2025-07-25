@@ -22,7 +22,7 @@
     }
 
     .section-container{
-        @apply w-[90%] md:w-auto container md:px-8 lg:px-14 mx-auto py-16;
+        @apply w-[90%] md:w-auto container md:px-6 lg:px-10 mx-auto py-16;
     }
 
     .btn{

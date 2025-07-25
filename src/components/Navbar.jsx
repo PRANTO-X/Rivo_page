@@ -26,7 +26,7 @@ const Navbar = () => {
 
   return (
     <header className='z-40 fixed top-0 left-0 right-0  bg-bg'>
-        <nav className='relative w-[90%] md:w-auto container md:px-8 lg:px-14 mx-auto flex justify-between items-center py-6'>
+        <nav className='relative w-[90%] md:w-auto container md:px-8 lg:px-10 mx-auto flex justify-between items-center py-6'>
 
             <div className="z-40 font-rufina font-black text-primary text-3xl">Rivo</div>
 
@@ -41,7 +41,7 @@ const Navbar = () => {
               {/* Cart Button */}
                 <button onClick={() => setIsCartOpen(true)}  className='relative'>
                   <img className='size-9 mt-2 cursor-pointer' src={assets.cartIcon} alt="" loading='lazy' />
-                   <span className=' absolute bottom-1 -right-0 text-white  text-xs w-5 h-5 flex justify-center items-center rounded-full bg-red-600'>1</span>
+                   <span className=' absolute bottom-1 -right-0 text-white  text-xs w-5 h-5 flex justify-center items-center rounded-full bg-primary'>1</span>
                 </button>
 
                 <div><button className='border-2 border-primary font-poppins text-primary  px-5 py-1.5'>LOGIN</button></div>
@@ -53,7 +53,7 @@ const Navbar = () => {
                 ${showMobileMenu ? 'translate-y-0 mt-3' : '-translate-y-[200%] mt-0'}`}>
 
                 {navItems.map((item) => (
-                  <Link className='nav-link' key={item.name} to={item.link}>{item.name}</Link>
+                  <Link onClick={mobileMenuToggler} className='nav-link' key={item.name} to={item.link}>{item.name}</Link>
                 ))}
                 
               </ul>
@@ -62,7 +62,7 @@ const Navbar = () => {
              <div className="md:hidden flex items-center gap-4 z-40">
                 <button onClick={() => setIsCartOpen(true)}  className='relative'>
                   <img className='size-9 mt-2 cursor-pointer' src={assets.cartIcon} alt="" loading='lazy' />
-                   <span className=' absolute bottom-1 -right-0 text-white  text-xs w-5 h-5 flex justify-center items-center rounded-full bg-red-600'>1</span>
+                   <span className=' absolute bottom-1 -right-0 text-white  text-xs w-5 h-5 flex justify-center items-center rounded-full bg-primary'>1</span>
                 </button>
                 <div>
                   <button onClick={mobileMenuToggler} className='text-2xl z-200'>{showMobileMenu ? <RxCross1/> : <RxHamburgerMenu/>}</button>
