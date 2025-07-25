@@ -16,7 +16,7 @@ const FeedBack = () => {
         spaceBetween={30}
     
         onSwiper={(swiper) => swiperRef.current = swiper}
-        className='my-18'
+        className='my-10 md:my-14 lg:my-18'
         breakpoints={{
             0: { slidesPerView: 1 },
             768: { slidesPerView: 2 },
