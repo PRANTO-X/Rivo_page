@@ -1,6 +1,6 @@
 import React, {useState} from 'react'
 import { products } from '../../assets/assets'
-import ProductCard from '../ProductCard'
+import ProductCard from '../Shared/ProductCard'
 
 const Products = () => {
   const [selectedCategory, setSelectedCategory] = useState("sale");

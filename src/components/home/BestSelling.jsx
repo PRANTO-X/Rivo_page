@@ -1,7 +1,7 @@
 import React from 'react'
 import { bestSellingItems } from '../../assets/assets'
 import { FaArrowRightLong } from "react-icons/fa6";
-import ProductCard from '../ProductCard';
+import ProductCard from '../Shared/ProductCard';
 
 const BestSelling = () => {
   return (

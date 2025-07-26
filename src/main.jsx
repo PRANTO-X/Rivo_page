@@ -8,6 +8,7 @@ import { Home } from './components/home/Home.jsx';
 import Shop from './components/shop/Shop.jsx';
 import Feature from './components/feature/Feature.jsx';
 import Contact from './components/contact/Contact.jsx';
+import { CartProvider } from "./hooks/CartProvider"
 
 const router = createBrowserRouter([
   {
@@ -24,7 +25,9 @@ const router = createBrowserRouter([
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>
-    <RouterProvider router={router} />
+    <CartProvider> 
+      <RouterProvider router={router} />
+    </CartProvider>
   </StrictMode>
 );
 

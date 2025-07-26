@@ -1,10 +1,14 @@
-import React,{useState,useEffect} from 'react'
-import { assets,navItems } from '../assets/assets'
+import React,{useState,useEffect, useContext} from 'react'
+import { assets,navItems } from '../../assets/assets'
 import { Link, Links } from 'react-router-dom'
 import { RxHamburgerMenu,RxCross1 } from "react-icons/rx";
 import Cart from './Cart';
+import { CartContext } from '../../hooks/CartContext';
 
 const Navbar = () => {
+
+  const {cartItems} = useContext(CartContext);
+  const totalItems = cartItems.reduce((acc, item) => acc + item.quantity, 0);
   
   const [showMobileMenu,setShowMobileMenu] = useState(false);
    const [isCartOpen, setIsCartOpen] = useState(false);
@@ -41,7 +45,11 @@ const Navbar = () => {
               {/* Cart Button */}
                 <button onClick={() => setIsCartOpen(true)}  className='relative'>
                   <img className='size-9 mt-2 cursor-pointer' src={assets.cartIcon} alt="" loading='lazy' />
-                   <span className=' absolute bottom-1 -right-0 text-white  text-xs w-5 h-5 flex justify-center items-center rounded-full bg-primary'>1</span>
+                  {totalItems > 0 && (
+                    <span className='absolute top-0 -left-3 text-white text-xs  w-5 h-5 flex justify-center items-center rounded-full bg-primary'>
+                      {totalItems}
+                    </span>
+                  )}
                 </button>
 
                 <div><button className='border-2 border-primary font-poppins text-primary  px-5 py-1.5'>LOGIN</button></div>
@@ -62,13 +70,18 @@ const Navbar = () => {
              <div className="md:hidden flex items-center gap-4 z-40">
                 <button onClick={() => setIsCartOpen(true)}  className='relative'>
                   <img className='size-9 mt-2 cursor-pointer' src={assets.cartIcon} alt="" loading='lazy' />
-                   <span className=' absolute bottom-1 -right-0 text-white  text-xs w-5 h-5 flex justify-center items-center rounded-full bg-primary'>1</span>
+                   {totalItems > 0 && (
+                    <span className='absolute top-0 -left-3 text-white text-xs  w-5 h-5 flex justify-center items-center rounded-full bg-primary'>
+                      {totalItems}
+                    </span>
+                  )}
                 </button>
                 <div>
                   <button onClick={mobileMenuToggler} className='text-2xl z-200'>{showMobileMenu ? <RxCross1/> : <RxHamburgerMenu/>}</button>
                 </div>
             </div> 
 
+        
             <Cart isOpen={isCartOpen} onClose={() => setIsCartOpen(false)}/>    
         </nav>
         
