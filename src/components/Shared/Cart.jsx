@@ -35,7 +35,7 @@ const Cart = ({ isOpen, onClose }) => {
   return (
     <>
       <div className={`
-        fixed top-0 right-0 h-full w-full sm:w-[75%] md:w-1/2 lg:w-[40%] 2xl:w-1/4 
+        fixed top-0 right-0 h-full w-full sm:w-[75%] md:w-[60%] lg:w-[40%] 2xl:w-1/4 
         bg-gray-200 shadow-lg z-50 
         transform transition-transform duration-500 ease-in-out
         ${isOpen ? 'translate-x-0' : 'translate-x-full'}
