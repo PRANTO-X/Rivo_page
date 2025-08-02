@@ -19,18 +19,18 @@ const Checkout = ({ onCloseCheckout, onCompleteOrder }) => {
 
 
   return (
-    <div className="fixed inset-0 px-3 bg-opacity-60 flex items-center justify-center z-70">
+    <div className="fixed inset-0 px-3  bg-black/80 bg-opacity-60 flex items-center justify-center z-70">
       <motion.div
         initial={{ scale: 0.8, opacity: 0 }}
         animate={{ scale: 1, opacity: 1 }}
-        exit={{ scale: 0.8, opacity: 0 }}
+        exit={{ scale: 0, opacity: 0 }}
         transition={{
             duration: 0.3,
             ease: easeIn,
         }}
         className="bg-white w-full max-w-md rounded-xl p-6 shadow-lg relative"
       >
-        <button onClick={onCloseCheckout} className="absolute cursor-pointer  top-2 right-3 text-gray-400 hover:text-black text-2xl">&times;</button>
+        <button onClick={onCloseCheckout} className={`${confirmed ? 'hidden' : ''} absolute cursor-pointer  top-2 right-3 text-gray-400 hover:text-black text-2xl`}>&times;</button>
 
         {!confirmed ? (
           <>

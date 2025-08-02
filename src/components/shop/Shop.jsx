@@ -2,6 +2,9 @@ import React ,{useContext, useState} from 'react'
 import { shopProducts } from '../../assets/assets'
 import { CiFilter } from "react-icons/ci";
 import { CartContext } from '../../hooks/CartContext';
+import ProductAddCard from '../Shared/productAddCard';
+import { AnimatePresence } from "framer-motion";
+
 
 
 const Shop = () => {
@@ -15,9 +18,19 @@ const Shop = () => {
         item.category.toLowerCase().trim() === selectedCategory.toLowerCase().trim()
     );
 
+    const [productAddedKey, setProductAddedKey] = useState(0);
+
+    const productAddedHandler = () => {
+      setProductAddedKey(prev => prev + 1); 
+      setTimeout(() => {
+        setProductAddedKey(0);
+      }, 1000);
+    };
+
+
   return (
 
-    <section className='section-container py-36'>
+    <section className='section-container py-36 relative'>
       <div className="flex justify-between items-center mb-10">
 
         <h2 className='heading text-2xl  md:text-4xl '>Our products</h2>
@@ -74,18 +87,26 @@ const Shop = () => {
             const isInCart = cartItems.some(cartItem => cartItem.id === item.id);
               return (
                 <div key={item.id}  className={`flex flex-col justify-center   items-center gap-2 bg-gray-200 shadow-lg p-5 rounded-lg transition duration-300 ${
-                                            isInCart ? 'outline-2 outline-primary' : ''}`}>
+                                            isInCart ? 'outline-2 outline-secondary-bg' : ''}`}>
               
                   <img className='w-full h-[70%] object-cover rounded-lg' src={item.img} alt={item.name} loading='lazy'/>
                   <h4 className="text-lg mt-2 md:text-xl font-poppins font-bold text-gray-800 text-center">{item.name}</h4>
                   <p className='font-poppins text-primary font-bold text-lg'>{item.price}</p>
 
-                  <button onClick={()=>dispatch({type: 'ADD',payload: item})} className='btn text-sm lg:text-lg'>Add To Cart</button>
+                  <button onClick={()=>{dispatch({type: 'ADD',payload: item});productAddedHandler()}} className={`${isInCart ? 'pointer-events-none bg-secondary-bg' : ''} btn text-sm lg:text-lg`}>Add To Cart</button>
                 </div>
               )
             })}
-        </div>
+        </div>     
       </div>
+
+      <AnimatePresence>
+        {productAddedKey !== 0 && (
+          <ProductAddCard key={`product-add-card-${productAddedKey}`} />
+        )}
+      </AnimatePresence>
+
+
     </section>
   )
 }
